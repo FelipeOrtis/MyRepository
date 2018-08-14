@@ -1,0 +1,17 @@
+com\coinMex\architecture\mx\AppApplication.class
+com\coinMex\architecture\mx\dao\PerfilesDAO.class
+com\coinMex\architecture\mx\services\UsuariosServiceImpl$1.class
+com\coinMex\architecture\mx\controller\UsuariosRest.class
+com\coinMex\architecture\mx\services\UsuariosServices.class
+com\coinMex\architecture\mx\services\UsuariosServiceImpl$2.class
+com\coinMex\architecture\mx\controller\UsuariosRestImpl.class
+com\coinMex\architecture\mx\model\UsuariosDO.class
+com\coinMex\architecture\mx\model\PerfilesDO.class
+com\coinMex\architecture\mx\services\PerfilesServies.class
+com\coinMex\architecture\mx\controller\PerfilesRest.class
+com\coinMex\architecture\mx\controller\PerfilesRestImpl.class
+com\coinMex\architecture\mx\dao\UsuariosDAO.class
+com\coinMex\architecture\mx\services\PerfilesServicesImpl$2.class
+com\coinMex\architecture\mx\services\UsuariosServiceImpl.class
+com\coinMex\architecture\mx\services\PerfilesServicesImpl$1.class
+com\coinMex\architecture\mx\services\PerfilesServicesImpl.class

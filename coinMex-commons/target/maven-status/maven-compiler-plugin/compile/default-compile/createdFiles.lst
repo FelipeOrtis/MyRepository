@@ -1,0 +1,8 @@
+com\coinMex\architecture\mx\vo\ClassSalida.class
+com\coinMex\architecture\mx\vo\UsuariosVO.class
+com\coinMex\architecture\mx\vo\Ejem1.class
+com\coinMex\architecture\mx\vo\ResponseVO.class
+com\coinMex\architecture\mx\vo\ClassEntrada.class
+com\coinMex\architecture\mx\util\ValidationEmail.class
+com\coinMex\architecture\mx\util\ValidationPassword.class
+com\coinMex\architecture\mx\vo\PerfilesVO.class
