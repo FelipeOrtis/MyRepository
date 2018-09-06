@@ -1,10 +1,14 @@
 package com.coinMex.architecture.mx.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -20,6 +24,10 @@ public class PerfilesDO {
 
 	@Column(name = "perfil")
 	private String perfil;
+	
+	@OneToMany
+	@JoinColumn(name = "id_perfil")
+	List<UsuariosDO> perfiles;
 
 	public int getId_perfil() {
 		return id_perfil;
@@ -37,4 +45,13 @@ public class PerfilesDO {
 		this.perfil = perfil;
 	}
 
+	public List<UsuariosDO> getPerfiles() {
+		return perfiles;
+	}
+
+	public void setPerfiles(List<UsuariosDO> perfiles) {
+		this.perfiles = perfiles;
+	}
+
+	
 }

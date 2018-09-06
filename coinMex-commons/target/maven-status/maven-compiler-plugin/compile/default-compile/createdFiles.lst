@@ -6,3 +6,5 @@ com\coinMex\architecture\mx\vo\ClassEntrada.class
 com\coinMex\architecture\mx\util\ValidationEmail.class
 com\coinMex\architecture\mx\util\ValidationPassword.class
 com\coinMex\architecture\mx\vo\PerfilesVO.class
+com\coinMex\architecture\mx\vo\EstadoVO.class
+com\coinMex\architecture\mx\vo\BancoVO.class

@@ -16,7 +16,7 @@ public class UsuariosVO {
 	
 	private int id_perfil;
 	
-	private int num_acount;
+	private Long num_acount;
 	
 	private int edad;
 	
@@ -98,11 +98,11 @@ public class UsuariosVO {
 		this.id_perfil = id_perfil;
 	}
 
-	public int getNum_acount() {
+	public Long getNum_acount() {
 		return num_acount;
 	}
 
-	public void setNum_acount(int num_acount) {
+	public void setNum_acount(Long num_acount) {
 		this.num_acount = num_acount;
 	}
 

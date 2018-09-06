@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -28,11 +30,15 @@ public class UsuariosDO {
 	@Column(name="email")
 	private String email;
 	
-	@Column(name="id_perfil")
-	private int id_perfil;
+	@ManyToOne
+	@JoinColumn(name = "id_perfil", referencedColumnName = "id_perfil")
+	private PerfilesDO perfil;
 	
-	@Column(name="num_cuenta")
-	private int num_acount;
+	@ManyToOne
+	@JoinColumn(name = "num_cuenta", referencedColumnName = "num_cuenta")
+	private BancoDO banco;
+	
+	
 	
 	public Long getId() {
 		return this.id_user;
@@ -78,20 +84,20 @@ public class UsuariosDO {
 		this.email = email;
 	}
 
-	public int getId_perfil() {
-		return id_perfil;
+	public PerfilesDO getPerfil() {
+		return perfil;
 	}
 
-	public void setId_perfil(int id_perfil) {
-		this.id_perfil = id_perfil;
+	public void setPerfil(PerfilesDO perfil) {
+		this.perfil = perfil;
 	}
 
-	public int getNum_acount() {
-		return num_acount;
+	public BancoDO getNum_acount() {
+		return banco;
 	}
 
-	public void setNum_acount(int num_acount) {
-		this.num_acount = num_acount;
+	public void setNum_acount(BancoDO banco) {
+		this.banco = banco;
 	}
 	
 	

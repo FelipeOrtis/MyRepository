@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.coinMex.architecture.mx.dao.UsuariosDAO;
+import com.coinMex.architecture.mx.model.BancoDO;
+import com.coinMex.architecture.mx.model.PerfilesDO;
 import com.coinMex.architecture.mx.model.UsuariosDO;
 import com.coinMex.architecture.mx.services.UsuariosServices;
 import com.coinMex.architecture.mx.vo.ClassEntrada;
@@ -25,14 +27,14 @@ public class UsuariosServiceImpl implements UsuariosServices {
 		List<UsuariosDO> listUsers = usuariosDAO.findAll();
 
 		return listUsers.stream().map(x -> new UsuariosVO() {
-			{
+			{				
 				setId_user(x.getId_user());
 				setName(x.getName());
 				setEmail(x.getEmail());
 				setUser(x.getUser());
 				setPassword(x.getPassword());
-				setId_perfil(x.getId_perfil());
-				setNum_acount(x.getNum_acount());
+				setId_perfil(x.getPerfil().getId_perfil());
+				setNum_acount(x.getNum_acount().getNum_cuenta());
 			}
 		}).collect(Collectors.toList());
 
@@ -84,9 +86,14 @@ public class UsuariosServiceImpl implements UsuariosServices {
 	public List<UsuariosVO> insertUser(UsuariosVO request) {
 		// TODO Auto-generated method stub
 		UsuariosDO data = new UsuariosDO();
+		PerfilesDO user = new PerfilesDO();
+		BancoDO bDO = new BancoDO();
+		
 		Boolean validEdad = false;
 		Boolean validPass = false;
 
+		bDO.setNum_cuenta(request.getNum_acount());
+		user.setId_perfil(request.getId_perfil());
 		
 		if (request.getEdad() > 18) {
 			validEdad = true;
@@ -99,8 +106,8 @@ public class UsuariosServiceImpl implements UsuariosServices {
 			data.setUser(request.getUser());
 			data.setPassword(request.getNewPass());
 			data.setEmail(request.getEmail());
-			data.setId_perfil(1);
-			data.setNum_acount(33333);
+			data.setPerfil(user);
+			data.setNum_acount(bDO);
 
 			usuariosDAO.save(data);
 
@@ -115,8 +122,8 @@ public class UsuariosServiceImpl implements UsuariosServices {
 				setEmail(x.getEmail());
 				setUser(x.getUser());
 				setPassword(x.getPassword());
-				setId_perfil(x.getId_perfil());
-				setNum_acount(x.getNum_acount());
+				setId_perfil(x.getPerfil().getId_perfil());
+				setNum_acount(x.getNum_acount().getNum_cuenta());
 			}
 		}).collect(Collectors.toList());
 
@@ -127,7 +134,12 @@ public class UsuariosServiceImpl implements UsuariosServices {
 		// TODO Auto-generated method stub
 		ResponseVO responseVO = new ResponseVO();
 		UsuariosDO userDO = new UsuariosDO();
-
+		PerfilesDO perfil = new PerfilesDO();
+		BancoDO bn = new BancoDO();
+		
+		bn.setNum_cuenta(reqst.getNum_acount());
+		
+		perfil.setId_perfil(reqst.getId_perfil());
 		// reqst.getId_user();
 
 		if (reqst.getId_user() != null) {
@@ -136,8 +148,8 @@ public class UsuariosServiceImpl implements UsuariosServices {
 			userDO.setUser(reqst.getUser());
 			userDO.setPassword(reqst.getPassword());
 			userDO.setEmail(reqst.getEmail());
-			userDO.setId_perfil(1);
-			userDO.setNum_acount(33333);
+			userDO.setPerfil(perfil);
+			userDO.setNum_acount(bn);
 
 			responseVO.setDetail("SUCCESS");
 			responseVO.setTypeDetail("SUCCELL");

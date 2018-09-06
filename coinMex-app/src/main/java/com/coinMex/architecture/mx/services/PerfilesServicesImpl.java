@@ -35,20 +35,10 @@ public class PerfilesServicesImpl implements PerfilesServies {
 	public List<PerfilesVO> insertPerfil(PerfilesVO requestPerfil) {
 		// TODO Auto-generated method stub
 		PerfilesDO dat = new PerfilesDO();
-		ResponseVO response = new ResponseVO();
 		
-		/*String validaId= String.valueOf(requestPerfil.getId_perfil());
-		if (validaId.equals(null)) {
-			response.setDetail("Success");
-			response.setTypeDetail("Success");
-			*/
 			dat.setPerfil(requestPerfil.getPerfil());
 			
 			perfilDAO.save(dat);			
-		/*}else {
-			response.setDetail("Fail");
-			response.setTypeDetail("Fail");
-		}*/
 					
 			List<PerfilesDO> listPerfil= perfilDAO.findAll();
 			
@@ -59,6 +49,41 @@ public class PerfilesServicesImpl implements PerfilesServies {
 				}
 			}).collect(Collectors.toList());
 		 
+	}
+
+	@Override
+	public ResponseVO updatePerfil(PerfilesVO rqstPerfil) {
+		// TODO Auto-generated method stub
+		PerfilesDO per= new PerfilesDO();
+		ResponseVO resp = new ResponseVO();
+		
+		per.setId_perfil(rqstPerfil.getId_perfil());
+		per.setPerfil(rqstPerfil.getPerfil());
+		
+		resp.setDetail("SUCCESS");
+		resp.setTypeDetail("SUCCESS");
+		try {
+			perfilDAO.save(per);
+		}catch(Exception e) {
+			resp.setDetail("FAIL");
+			resp.setTypeDetail("FAIL"+e.getMessage());
+		}		
+		return resp;
+	}
+
+	@Override
+	public ResponseVO deletePerfil(Long id_per) {
+		// TODO Auto-generated method stub
+		ResponseVO res = new ResponseVO();
+		res.setDetail("SUCCESS");
+		res.setTypeDetail("SUCCESS");
+		try{
+			perfilDAO.delete(id_per);
+		}catch(Exception e){
+			res.setDetail("FAIL");
+			res.setTypeDetail("FAIL"+e.getMessage());
+		}
+		return res;
 	}
 	
 	
